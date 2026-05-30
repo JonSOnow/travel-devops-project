@@ -1,0 +1,688 @@
+/* =========================
+   MODERN DEVOPS PORTFOLIO
+   Replace your index.html
+========================= */
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Chirag | DevOps Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#020617;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* Animated Background */
+
+    body::before{
+      content:"";
+      position:fixed;
+      width:700px;
+      height:700px;
+      background:radial-gradient(circle,#0ea5e955,transparent 70%);
+      top:-200px;
+      left:-200px;
+      z-index:-1;
+      animation:moveGlow 8s infinite alternate;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      width:600px;
+      height:600px;
+      background:radial-gradient(circle,#7c3aed55,transparent 70%);
+      bottom:-200px;
+      right:-200px;
+      z-index:-1;
+      animation:moveGlow2 10s infinite alternate;
+    }
+
+    @keyframes moveGlow{
+      from{
+        transform:translateX(0px) translateY(0px);
+      }
+
+      to{
+        transform:translateX(100px) translateY(50px);
+      }
+    }
+
+    @keyframes moveGlow2{
+      from{
+        transform:translateX(0px) translateY(0px);
+      }
+
+      to{
+        transform:translateX(-100px) translateY(-50px);
+      }
+    }
+
+    /* Navbar */
+
+    nav{
+      width:100%;
+      padding:22px 80px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      z-index:1000;
+
+      background:rgba(15,23,42,0.65);
+      backdrop-filter:blur(18px);
+
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:700;
+      color:#38bdf8;
+      letter-spacing:1px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:35px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-size:16px;
+      position:relative;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#38bdf8;
+    }
+
+    nav ul li a::after{
+      content:"";
+      position:absolute;
+      width:0%;
+      height:2px;
+      left:0;
+      bottom:-6px;
+      background:#38bdf8;
+      transition:0.4s;
+    }
+
+    nav ul li a:hover::after{
+      width:100%;
+    }
+
+    /* Hero Section */
+
+    .hero{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+
+      background:
+      linear-gradient(rgba(2,6,23,0.8),rgba(2,6,23,0.9)),
+      url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3');
+
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-content{
+      animation:fadeUp 1.5s ease;
+    }
+
+    .hero h1{
+      font-size:85px;
+      margin-bottom:20px;
+      font-weight:800;
+      line-height:1.1;
+    }
+
+    .hero span{
+      background:linear-gradient(45deg,#38bdf8,#7c3aed);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      max-width:850px;
+      margin:auto;
+      line-height:1.9;
+      font-size:22px;
+      color:#cbd5e1;
+    }
+
+    .hero-buttons{
+      margin-top:40px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 35px;
+      border-radius:50px;
+      text-decoration:none;
+      transition:0.4s;
+      font-weight:600;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .primary-btn{
+      background:linear-gradient(45deg,#0ea5e9,#7c3aed);
+      color:white;
+      box-shadow:0 0 25px rgba(14,165,233,0.4);
+    }
+
+    .secondary-btn{
+      border:2px solid #38bdf8;
+      color:#38bdf8;
+    }
+
+    .btn:hover{
+      transform:translateY(-6px) scale(1.05);
+    }
+
+    .primary-btn:hover{
+      box-shadow:0 0 40px rgba(14,165,233,0.8);
+    }
+
+    .secondary-btn:hover{
+      background:#38bdf8;
+      color:#020617;
+    }
+
+    /* Section */
+
+    section{
+      padding:120px 80px;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:55px;
+      margin-bottom:70px;
+      font-weight:700;
+    }
+
+    .section-title span{
+      color:#38bdf8;
+    }
+
+    /* Skills */
+
+    .cards{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:35px;
+    }
+
+    .card{
+      width:330px;
+      padding:40px;
+      border-radius:28px;
+
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(15px);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      transition:0.5s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      width:200%;
+      height:200%;
+      background:linear-gradient(
+      45deg,
+      transparent,
+      rgba(56,189,248,0.15),
+      transparent);
+
+      top:-150%;
+      left:-150%;
+
+      transition:0.7s;
+    }
+
+    .card:hover::before{
+      top:100%;
+      left:100%;
+    }
+
+    .card:hover{
+      transform:translateY(-15px);
+      box-shadow:0 20px 40px rgba(14,165,233,0.3);
+      border:1px solid #38bdf8;
+    }
+
+    .card-icon{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      font-size:30px;
+      margin-bottom:15px;
+      color:#38bdf8;
+    }
+
+    .card p{
+      line-height:1.8;
+      color:#cbd5e1;
+    }
+
+    /* Projects */
+
+    .projects{
+      background:#0f172a;
+    }
+
+    .project-grid{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:35px;
+    }
+
+    .project-card{
+      width:360px;
+      border-radius:25px;
+      overflow:hidden;
+      background:#111827;
+      transition:0.5s;
+      position:relative;
+    }
+
+    .project-card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      transition:0.6s;
+    }
+
+    .project-content{
+      padding:28px;
+    }
+
+    .project-content h3{
+      color:#38bdf8;
+      margin-bottom:15px;
+      font-size:28px;
+    }
+
+    .project-content p{
+      line-height:1.8;
+      color:#cbd5e1;
+    }
+
+    .project-card:hover{
+      transform:translateY(-15px);
+      box-shadow:0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    .project-card:hover img{
+      transform:scale(1.1);
+    }
+
+    /* Contact */
+
+    .contact-box{
+      max-width:750px;
+      margin:auto;
+      padding:50px;
+      border-radius:30px;
+
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(20px);
+
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    input,
+    textarea{
+      padding:18px;
+      border:none;
+      border-radius:14px;
+      background:rgba(255,255,255,0.07);
+      color:white;
+      outline:none;
+      transition:0.4s;
+      font-size:16px;
+    }
+
+    input:focus,
+    textarea:focus{
+      border:1px solid #38bdf8;
+      box-shadow:0 0 20px rgba(56,189,248,0.4);
+    }
+
+    button{
+      padding:18px;
+      border:none;
+      border-radius:50px;
+      background:linear-gradient(45deg,#0ea5e9,#7c3aed);
+      color:white;
+      font-size:18px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.4s;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 30px rgba(14,165,233,0.7);
+    }
+
+    /* Footer */
+
+    footer{
+      text-align:center;
+      padding:35px;
+      background:#020617;
+      color:#94a3b8;
+    }
+
+    /* Animations */
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(60px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0px);
+      }
+    }
+
+    /* Responsive */
+
+    @media(max-width:900px){
+
+      nav{
+        padding:20px;
+      }
+
+      .hero h1{
+        font-size:50px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      section{
+        padding:90px 20px;
+      }
+
+      .section-title{
+        font-size:40px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav>
+
+    <div class="logo">Chirag.dev</div>
+
+    <ul>
+
+      <li><a href="#">Home</a></li>
+
+      <li><a href="#">Skills</a></li>
+
+      <li><a href="#">Projects</a></li>
+
+      <li><a href="#">Contact</a></li>
+
+    </ul>
+
+  </nav>
+
+  <!-- Hero -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        Future <span>DevOps</span><br>
+        Engineer
+      </h1>
+
+      <p>
+        Building automated CI/CD pipelines using Jenkins, Docker,
+        GitHub and Linux. Passionate about cloud infrastructure,
+        deployment automation and scalable systems.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#" class="btn primary-btn">
+          View Projects
+        </a>
+
+        <a href="#" class="btn secondary-btn">
+          Contact Me
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Skills -->
+
+  <section>
+
+    <h2 class="section-title">
+      My <span>DevOps Skills</span>
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">🐳</div>
+
+        <h3>Docker</h3>
+
+        <p>
+          Built and deployed containerized applications using Docker
+          and NGINX with automated deployment workflows.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">⚙️</div>
+
+        <h3>Jenkins</h3>
+
+        <p>
+          Created CI/CD pipelines integrated with GitHub
+          for automatic builds and deployments.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">☁️</div>
+
+        <h3>AWS & Terraform</h3>
+
+        <p>
+          Learning cloud deployment, infrastructure automation
+          and Infrastructure as Code practices.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Projects -->
+
+  <section class="projects">
+
+    <h2 class="section-title">
+      Featured <span>Projects</span>
+    </h2>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+
+        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+
+        <div class="project-content">
+
+          <h3>CI/CD Travel Website</h3>
+
+          <p>
+            Built a complete DevOps pipeline using Jenkins,
+            GitHub and Docker with automated deployment.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4">
+
+        <div class="project-content">
+
+          <h3>Dockerized Portfolio</h3>
+
+          <p>
+            Developed a responsive multi-page portfolio website
+            with modern UI and hover effects.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa">
+
+        <div class="project-content">
+
+          <h3>Cloud Infrastructure</h3>
+
+          <p>
+            Exploring Terraform and AWS for scalable
+            infrastructure provisioning and automation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Contact -->
+
+  <section>
+
+    <h2 class="section-title">
+      Contact <span>Me</span>
+    </h2>
+
+    <div class="contact-box">
+
+      <form>
+
+        <input type="text" placeholder="Your Name">
+
+        <input type="email" placeholder="Your Email">
+
+        <textarea rows="6" placeholder="Your Message"></textarea>
+
+        <button>
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer>
+
+    <p>
+      © 2026 Chirag Kashyap | DevOps Portfolio
+    </p>
+
+  </footer>
+
+</body>
+
+</html>
